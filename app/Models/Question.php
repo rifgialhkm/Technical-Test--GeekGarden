@@ -68,8 +68,10 @@ class Question extends Model
                 10 => 0
             ];
             
-            foreach ($selectedOptions as $selectedOption) {
-                if ($selectedOption === $question->correct_option) {
+            foreach ($selectedOptions as $questionId => $selectedOption) {
+                $question = Question::find($questionId);
+
+                if ($question && $question->correct_option === $selectedOption) {
                     $correctCount++;
                 }
             }

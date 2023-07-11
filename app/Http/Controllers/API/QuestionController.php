@@ -19,6 +19,7 @@ class QuestionController extends Controller
      */
     public function index(Request $request)
     {
+        dd(Question::orderByCorrectAnswersDesc());
         $limit = $request->limit ?? null;
         $keyword = $request->keyword;
 
